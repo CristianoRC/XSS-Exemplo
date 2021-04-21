@@ -16,7 +16,7 @@ app.get('/api/comment', (req, res) => {
 app.post('/api/comment', (req, res) => {
     const comment = req.body;
     commentService.insertComment(comment);
-    return res.status(201).json({ comment });
+    return res.status(201).json(comment);
 })
 
 app.listen(port, () => {
