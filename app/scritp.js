@@ -1,10 +1,14 @@
 const getAllComments = async () => {
     const response = await axios.get('http://localhost:3000/api/comment');
-    console.log(response.data)
+    const commentsContainer = document.getElementById('list-comments');
+    const { comments } = response.data;
+    comments.forEach(comment => {
+        commentsContainer.innerHTML += generateCommentHtml(comment)
+    });
 }
 
 const insertComment = async (comment) => {
-    await axios.post('http://localhost:3000/api/comment', { comment })
+    await axios.post('http://localhost:3000/api/comment', comment)
 }
 
 const clearInputs = () => {
@@ -19,6 +23,11 @@ document.getElementById('comment-btn').addEventListener('click', async () => {
     clearInputs();
     alert('Comentário inserido com sucesso.')
 })
+
+const generateCommentHtml = (comment) => {
+    console.log(comment)
+    return `<li class="list-group-item">${comment.comment}</li>`
+}
 
 window.onload = async () => {
     clearInputs();
