@@ -1,3 +1,4 @@
+var xss = require("xss");
 
 const express = require('express');
 const app = express();
@@ -16,9 +17,12 @@ app.get('/api/comment', (req, res) => {
 })
 
 app.post('/api/comment', (req, res) => {
-    const comment = req.body;
-    commentService.insertComment(comment);
-    return res.status(201).json(comment);
+    const name = xss(req.body.name);
+    const comment = xss(req.body.comment);
+    const sanitizedComment = { name, comment };
+
+    commentService.insertComment(sanitizedComment);
+    return res.status(201).json(sanitizedComment);
 })
 
 app.listen(port, () => {
