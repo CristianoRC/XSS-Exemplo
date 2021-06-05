@@ -1,6 +1,9 @@
 # XSS-Exemplo
 Exemplo de funmcionamento do ataque XSS
 
+# Video explicando os conceitos
+
+[![Watch the video](https://img.youtube.com/vi/HQUCYEr50wc/maxresdefault.jpg)](https://www.youtube.com/watch?v=HQUCYEr50wc)
 
 # Iframe
 `<iframe src="https://www.cristianoprogramador.com/">`
