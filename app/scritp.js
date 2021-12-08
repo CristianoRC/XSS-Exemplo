@@ -31,6 +31,9 @@ const generateCommentHtml = (comment) => {
 
 window.onload = async () => {
     clearInputs();
+    const urlParams = new URLSearchParams(window.location.search);
+    const userName = urlParams.get('name');
+    document.getElementById('nome-pessoa').innerHTML += userName;
     await getAllComments()
 }
 
